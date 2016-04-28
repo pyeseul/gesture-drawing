@@ -16,11 +16,11 @@ int r;
 int g;
 int b;
 boolean blinkOn;
-boolean[] cellFill = new boolean[10*10];
+int[] cellFill = new int[10*10];
 
 void setup() {
   
-  background(255);
+  background(0);
   size(800,800);
   strokeWeight(2);
   
@@ -60,7 +60,7 @@ void draw() {
 }
 
 void drawGrid() {
-  stroke(199, 228, 255);
+  stroke(50);
   int grid = 80;
   for (int i = 0; i < width+grid; i+=grid) {
     line (i, 0, i, height);
@@ -72,7 +72,7 @@ void drawGrid() {
   
 void cursorBlink() {
   if (blinkOn) {
-    stroke(255, 0, 0);
+    stroke(255);
     beginShape(LINES);
     vertex(posx, posy);
     vertex(posx+80, posy);
@@ -85,7 +85,7 @@ void cursorBlink() {
     endShape();
   }
   else {
-    stroke(199, 228, 255);
+    stroke(50);
     beginShape(LINES);
     vertex(posx, posy);
     vertex(posx+80, posy);
@@ -149,28 +149,39 @@ void moveFillErase(String validVal) {
   if (validVal.equals("FAR") || (validVal.equals("NEAR") || validVal.equals("NONE"))) {
     int cellNum = ((posy+80)/80-1) * 10 + ((posx+80)/80-1);
     stroke(255, 80, 100);
-    if (cellFill[cellNum] == true) {
+    if (cellFill[cellNum] == 1) {
       fill.play();
-      fill(255);
+      fill(0, 128, 255);
+      cellFill[cellNum]+=1;
+    }
+    else if (cellFill[cellNum] == 2) {
+      fill.play();
+      fill(255, 255, 0);
+      cellFill[cellNum]+=1;
+    }
+    else if (cellFill[cellNum] == 3) {
+      fill.play();
+      fill(0);
+      cellFill[cellNum] = 1; 
     }
     else {
       fill.play();
       fill (255, 80, 50);
-      //fill(r, g, b);
-      
+      cellFill[cellNum]+=1;
     }
     rect(posx, posy, 80, 80);
-    cellFill[cellNum] = !cellFill[cellNum];
+    //cellFill[cellNum] = !cellFill[cellNum];
   }
 } 
 
 void keyPressed() {
   if (keyCode == CONTROL) {
-    background(255);
+    background(0);
     }
   if (key == 's') {
     save(hour()+"-"+minute()+"-"+second()+".png");
   } 
+  
   //if (key == 'b') {
   //  int r = 0;
   //  int g = 255;
