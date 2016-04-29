@@ -1,6 +1,11 @@
 # gesture-drawing
 
-A gesture drawing tool that allows you to make a 10x10 pixel art using gestures that a gesture sensor can detect (up, down, left, right, far/close). This tool was developed to offer children an opportunity to explore a new type of interaction with computers and learn about the concept of pixels. 
+This software provides a canvas for the user to paint their own pixel art by using simple hand motions which are detected by a gesture sensor. This software can be used as a teaching aid for introducing children to the possibilties of gestural interaction as well as a reference point for programmers looking to create gesture-based drawing software.
+
+## Instruction
+
+- UP/DOWN/LEFT/RIGHT: move the cursor one cell to the direction
+- Push your hand towards the sensor: change color of the cell (blue -> red -> yellow -> delete) everytime the sensor detects the movement
 
 ## Hardware
 
@@ -12,7 +17,7 @@ This library has been tested with the following models:
 
 ![alt text](https://cloud.githubusercontent.com/assets/13546261/14905365/d2d4a8c4-0d7d-11e6-9de7-b3894e8a6a55.jpg "Logo Title Text 1")
 
-See more photos and videos on [my Flicker account](https://www.flickr.com/photos/137961649@N04/albums/72157667602234166).
+See more photos and videos [here](https://www.flickr.com/photos/137961649@N04/albums/72157667602234166).
 
 ## Notes
 
